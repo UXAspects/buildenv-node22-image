@@ -39,7 +39,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
     echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | \
     tee /etc/apt/sources.list.d/docker.list
 
-RUN apt update
+# RUN apt update
 
 #
 # Install Cypress Dependencies (https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies)
