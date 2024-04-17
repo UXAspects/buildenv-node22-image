@@ -49,4 +49,8 @@ RUN apt install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 
 #
 # Install Docker for Loki visual regression testing and dependencies required for Nx and build tooling
 #
+RUN apt install -y docker-ce
+RUN apt install -y docker-ce-cli
+RUN apt install -y containerd.io
+RUN apt install -y build-essential
 # RUN apt install -y docker-ce docker-ce-cli containerd.io build-essential
