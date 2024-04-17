@@ -35,11 +35,11 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | \
     apt update && apt install yarn
 
 # Add Docker's official GPG key:
-RUN apt-get update
-RUN apt-get install ca-certificates curl
-RUN install -m 0755 -d /etc/apt/keyrings
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-RUN chmod a+r /etc/apt/keyrings/docker.asc
+RUN apt-get update && \
+    apt-get install ca-certificates curl && \
+    install -m 0755 -d /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
+    chmod a+r /etc/apt/keyrings/docker.asc
     
 # Add the repository to Apt sources:
 RUN echo \
@@ -48,6 +48,7 @@ RUN echo \
     tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 RUN apt-get update
+
 #
 # Install Cypress Dependencies (https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies)
 #
@@ -56,8 +57,4 @@ RUN apt install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 
 #
 # Install Docker for Loki visual regression testing and dependencies required for Nx and build tooling
 #
-RUN apt install -y docker-ce
-RUN apt install -y docker-ce-cli
-RUN apt install -y containerd.io
-RUN apt install -y build-essential
-# RUN apt install -y docker-ce docker-ce-cli containerd.io build-essential
+RUN apt install -y docker-ce docker-ce-cli containerd.io build-essential
