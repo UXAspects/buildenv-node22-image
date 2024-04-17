@@ -34,13 +34,20 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | \
     tee /etc/apt/sources.list.d/yarn.list && \
     apt update && apt install yarn
 
-# RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
-#     apt-key add - && \
-#     echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | \
-#     tee /etc/apt/sources.list.d/docker.list
+# Add Docker's official GPG key:
+RUN apt-get update && \
+    apt-get install ca-certificates curl && \
+    install -m 0755 -d /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
+    chmod a+r /etc/apt/keyrings/docker.asc
+    
+# Add the repository to Apt sources:
+RUN echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-RUN apt update
-
+RUN apt-get update
 #
 # Install Cypress Dependencies (https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies)
 #
