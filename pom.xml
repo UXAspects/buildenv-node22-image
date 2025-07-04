@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2022-2024 Open Text.
+    Copyright 2022-2025 Open Text.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,13 +22,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.uxaspects</groupId>
-    <artifactId>buildenv-node18-image</artifactId>
-    <version>1.4.0-SNAPSHOT</version>
+    <artifactId>buildenv-node22-image</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>UXAspects Build Environment Image</name>
     <description>Specifies the environment for building the UXAspects projects</description>
-    <url>https://github.com/UXAspects/buildenv-node18-image/</url>
+    <url>https://github.com/UXAspects/buildenv-node22-image/</url>
 
     <inceptionYear>2022</inceptionYear>
 
@@ -49,22 +49,12 @@
         <developer>
             <id>ashley-hunter</id>
             <name>Ashley Hunter</name>
-            <email>ashley-glenn.hunter@microfocus.com</email>
-        </developer>
-        <developer>
-            <id>donna-marijne</id>
-            <name>Donna Worby</name>
-            <email>donna.worby@microfocus.com</email>
-        </developer>
-        <developer>
-            <id>dermot-hardy</id>
-            <name>Dermot Hardy</name>
-            <email>dermot.hardy@microfocus.com</email>
+            <email>ahunter2@opentext.com</email>
         </developer>
     </developers>
 
     <properties>
-        <copyrightYear>2024</copyrightYear>
+        <copyrightYear>2025</copyrightYear>
         <copyrightNotice>Copyright ${project.inceptionYear}-${copyrightYear} Open Text.</copyrightNotice>
         <dockerHubOrganization>uxaspects</dockerHubOrganization>
         <dockerUXAspectsOrg>${dockerImagePrefix}${dockerHubOrganization}${dockerOrgSeperator}</dockerUXAspectsOrg>
@@ -98,7 +88,7 @@
                 <configuration>
                     <images>
                         <image>
-                            <name>${dockerUXAspectsOrg}buildenv-node18${dockerProjectVersion}</name>
+                            <name>${dockerUXAspectsOrg}buildenv-node22${dockerProjectVersion}</name>
                             <build>
                                 <dockerFileDir>.</dockerFileDir>
                                 <args>
@@ -117,9 +107,9 @@
     </build>
 
     <scm>
-        <connection>scm:git:https://github.com/UXAspects/buildenv-node18-image.git</connection>
-        <developerConnection>scm:git:https://github.com/UXAspects/buildenv-node18-image.git</developerConnection>
-        <url>https://github.com/UXAspects/buildenv-node18-image</url>
+        <connection>scm:git:https://github.com/UXAspects/buildenv-node22-image.git</connection>
+        <developerConnection>scm:git:https://github.com/UXAspects/buildenv-node2-image.git</developerConnection>
+        <url>https://github.com/UXAspects/buildenv-node22-image</url>
     </scm>
 
 </project>
